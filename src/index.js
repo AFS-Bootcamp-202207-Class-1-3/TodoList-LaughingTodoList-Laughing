@@ -1,12 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
+import store from "./app/store";
 import reportWebVitals from "./reportWebVitals";
-import TodoList from "./components/TodoList";
+import TodoList from "./features/todoList/TodoList";
+import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<TodoList />);
+root.render(
+  <Provider store={store}>
+    <TodoList />
+  </Provider>
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
