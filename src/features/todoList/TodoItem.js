@@ -10,10 +10,10 @@ export default function TodoItem(props) {
   return (
     <div>
       <button
-        className="todoItem"
+        className={todo.done === true ? "todoItem-done" : "todoItem-notdone"}
         onClick={() => dispatch(todoDone(props.Index))}
       >
-        {todo.done === true ? <del>{todo.text}</del> : <span>{todo.text}</span>}
+        {todo.text}
       </button>
       <button
         style={{ background: "red", borderRadius: "100%", border: "none" }}

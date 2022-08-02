@@ -1,7 +1,15 @@
-.todoItem{
+.todoItem-done{
     width: 300px;
     height: 25px;
     background: none;
     margin: 5px;
     border: dashed 1px black;
+    text-decoration: line-through;
+}
+.todoItem-notdone {
+    width: 300px;
+    height: 25px;
+    background: none;
+    margin: 5px;
+    border: solid 1px yellow;
 }
