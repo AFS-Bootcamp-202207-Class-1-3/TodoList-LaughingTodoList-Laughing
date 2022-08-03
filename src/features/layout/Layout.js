@@ -1,23 +1,27 @@
 import { Link, Outlet } from "react-router-dom";
+import { Layout, Menu } from "antd";
 import "./style.css";
-export default function Layout() {
+const { Header, Content, Footer } = Layout;
+export default function MyLayout() {
   return (
-    <div>
-      <h1>Hello</h1>
-      <nav>
-        <Link className="link" to={"/"}>
-          Home
-        </Link>
-        <Link className="link" to={"/About"}>
-          About
-        </Link>
-        <Link className="link" to={"/DoneList"}>
-          Done
-        </Link>
-      </nav>
-      <div>
-        <Outlet></Outlet>
-      </div>
-    </div>
+    <Layout style={{ minHeight: "100vh" }}>
+      <Header>
+        <Menu theme="dark" mode="horizontal">
+          <Menu.Item key="Home" title="首页">
+            <Link to={"/"}>Home</Link>
+          </Menu.Item>
+          <Menu.Item key="About" title="关于">
+            <Link to={"/About"}>About</Link>
+          </Menu.Item>
+          <Menu.Item key="Done" title="Done">
+            <Link to={"/DoneList"}>Done</Link>
+          </Menu.Item>
+        </Menu>
+      </Header>
+      <Content>
+        <Outlet />
+      </Content>
+      <Footer style={{ textAlign: "center" }}>Design By Laughing</Footer>
+    </Layout>
   );
 }

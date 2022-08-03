@@ -5,7 +5,7 @@ import store from "./app/store";
 import reportWebVitals from "./reportWebVitals";
 import TodoList from "./features/todoList/TodoList";
 import { Provider } from "react-redux";
-import Layout from "./features/layout/Layout";
+import MyLayout from "./features/layout/Layout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./features/pages/About";
 import DoneList from "./features/todoList/DoneList";
@@ -16,7 +16,7 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route path={"/"} element={<Layout></Layout>}>
+        <Route path={"/"} element={<MyLayout></MyLayout>}>
           <Route path={"/"} element={<TodoList></TodoList>}></Route>
           <Route path={"/About"} element={<About></About>}></Route>
           <Route path={"/DoneList"} element={<DoneList />}></Route>

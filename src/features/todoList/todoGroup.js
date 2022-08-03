@@ -1,6 +1,6 @@
 import TodoItem from "./TodoItem";
 import { useSelector, useDispatch } from "react-redux";
-import { List, Modal, Input } from "antd";
+import { List, Modal, Input, notification } from "antd";
 import "./style.css";
 import { useState } from "react";
 import { updateTodoApi } from "../apis/TodoApi";
@@ -20,6 +20,11 @@ export default function TodoGroup() {
   };
 
   const toUpdateTodo = () => {
+    if (toUpdateId.length === 0 || toUpdateText.length === 0)
+      return notification.warning({
+        message: `输入不能为空`,
+      });
+
     updateTodoApi({ id: toUpdateId, text: toUpdateText }).then((res) => {
       dispatch(updateTodo(res.data));
       cleanModal();
@@ -29,6 +34,7 @@ export default function TodoGroup() {
   return (
     <div>
       <List
+        header={<h3>{todoList.length} Todos</h3>}
         dataSource={todoList}
         split={false}
         renderItem={(todo) => (
@@ -43,7 +49,7 @@ export default function TodoGroup() {
           </List.Item>
         )}
         pagination={{
-          pageSize: 8,
+          pageSize: 7,
         }}
       />
       <Modal

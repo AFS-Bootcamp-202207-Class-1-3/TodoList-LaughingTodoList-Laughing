@@ -9,7 +9,7 @@ export default function DoneList() {
     return (
       <input
         key={element.id}
-        style={{ display: "block" }}
+        style={{ display: "block", margin: "10px auto" }}
         value={element.text}
         disabled
       ></input>

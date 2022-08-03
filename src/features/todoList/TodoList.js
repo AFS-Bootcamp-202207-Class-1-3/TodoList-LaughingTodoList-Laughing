@@ -15,7 +15,7 @@ export default function TodoList() {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <h1>TODO List</h1>
+      <h1>Todo List</h1>
       <TodoGenerator />
       <TodoGroup />
     </div>

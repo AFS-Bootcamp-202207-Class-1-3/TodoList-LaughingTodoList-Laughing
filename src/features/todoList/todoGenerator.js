@@ -2,15 +2,16 @@ import { addTodo } from "./todoListSlice";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodoApi } from "../apis/TodoApi";
-import { Button } from "antd";
+import { Button, notification } from "antd";
 
 export default function TodoGenerator() {
   const [todo, setTodo] = useState("");
   const dispatch = useDispatch();
   const addTodoItem = () => {
     if (todo.length <= 0) {
-      alert("输入不能为空");
-      return;
+      return notification.warning({
+        message: `输入不能为空`,
+      });
     }
 
     addTodoApi({ text: todo }).then((res) => {
