@@ -2,6 +2,7 @@ import { addTodo } from "./todoListSlice";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodoApi } from "../apis/TodoApi";
+import { Button } from "antd";
 
 export default function TodoGenerator() {
   const [todo, setTodo] = useState("");
@@ -26,12 +27,9 @@ export default function TodoGenerator() {
         onChange={(event) => setTodo(event.target.value)}
         placeholder="输入Todo"
       />
-      <button
-        onClick={addTodoItem}
-        style={{ background: "skyblue", margin: "10px" }}
-      >
+      <Button onClick={addTodoItem} type="primary" style={{ margin: "10px" }}>
         Add
-      </button>
+      </Button>
     </div>
   );
 }

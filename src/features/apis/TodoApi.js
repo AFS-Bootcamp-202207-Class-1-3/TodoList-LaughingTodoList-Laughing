@@ -1,6 +1,6 @@
 import api from "./api";
 
-export function getTodo() {
+export function getTodoApi() {
   return api.get("/todos");
 }
 
@@ -14,4 +14,8 @@ export function deleteTodoApi(todoId) {
 
 export function doneTodoApi(todo) {
   return api.put("/todos/" + todo.id, { done: !todo.done });
+}
+
+export function updateTodoApi(todo) {
+  return api.put("/todos/" + todo.id, { done: false, text: todo.text });
 }

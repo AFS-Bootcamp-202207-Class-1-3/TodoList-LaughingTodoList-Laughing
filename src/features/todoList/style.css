@@ -1,3 +1,5 @@
+@import '~antd/dist/antd.css';
+
 .todoItem-done{
     width: 300px;
     height: 25px;
@@ -11,5 +13,9 @@
     height: 25px;
     background: none;
     margin: 5px;
-    border: solid 1px yellow;
+    border: solid 1px black;
+}
+
+.todo-item{
+    margin: auto;
 }

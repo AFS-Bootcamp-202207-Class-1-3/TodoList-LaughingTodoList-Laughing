@@ -30,9 +30,15 @@ const todoListSlice = createSlice({
     addTodos: (state, action) => {
       state.todos = action.payload;
     },
+    updateTodo: (state, action) => {
+      const index = state.todos.findIndex(
+        (todo) => todo.id === action.payload.id
+      );
+      state.todos[index] = action.payload;
+    },
   },
 });
 
 export default todoListSlice.reducer;
-export const { addTodo, deleteTodo, todoDone, addTodos } =
+export const { addTodo, deleteTodo, todoDone, addTodos, updateTodo } =
   todoListSlice.actions;
