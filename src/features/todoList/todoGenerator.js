@@ -1,7 +1,7 @@
 import { addTodo } from "./todoListSlice";
-import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { addTodoApi } from "../apis/TodoApi";
 
 export default function TodoGenerator() {
   const [todo, setTodo] = useState("");
@@ -11,7 +11,10 @@ export default function TodoGenerator() {
       alert("输入不能为空");
       return;
     }
-    dispatch(addTodo({ id: uuidv4(), done: false, text: todo }));
+
+    addTodoApi({ text: todo }).then((res) => {
+      dispatch(addTodo(res.data));
+    });
     setTodo("");
   };
 

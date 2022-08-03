@@ -7,7 +7,12 @@ export default function DoneList() {
 
   const TodoList = List.map((element, index) => {
     return (
-      <input style={{ display: "block" }} value={element.text} disabled></input>
+      <input
+        key={element.id}
+        style={{ display: "block" }}
+        value={element.text}
+        disabled
+      ></input>
     );
   });
 
