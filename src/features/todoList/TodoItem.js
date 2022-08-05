@@ -10,8 +10,8 @@ export default function TodoItem(props) {
   );
   const dispatch = useDispatch();
   const remove = () => {
-    deleteTodoApi(todo.id).then((res) => {
-      dispatch(deleteTodo(res.data.id));
+    deleteTodoApi(todo.id).then(() => {
+      dispatch(deleteTodo(todo.id));
     });
   };
 

@@ -18,7 +18,7 @@ export default function MyLayout() {
           </Menu.Item>
         </Menu>
       </Header>
-      <Content>
+      <Content style={{ border: "1px solid black" }}>
         <Outlet />
       </Content>
       <Footer style={{ textAlign: "center" }}>Design By Laughing</Footer>

@@ -32,7 +32,15 @@ export default function TodoGroup() {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        overflowY: "scroll",
+        height: "auto",
+        minHeight: "500px",
+        maxWidth: "800px",
+        margin: "auto",
+      }}
+    >
       <List
         header={<h3>{todoList.length} Todos</h3>}
         dataSource={todoList}
@@ -49,7 +57,7 @@ export default function TodoGroup() {
           </List.Item>
         )}
         pagination={{
-          pageSize: 7,
+          pageSize: 6,
         }}
       />
       <Modal
@@ -57,6 +65,7 @@ export default function TodoGroup() {
         onCancel={cleanModal}
         onOk={toUpdateTodo}
         closable={false}
+        centered
       >
         <div>
           <Input
